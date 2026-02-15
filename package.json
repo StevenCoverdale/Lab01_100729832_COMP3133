@@ -18,7 +18,10 @@
   },
   "homepage": "https://github.com/StevenCoverdale/Lab01_100729832_COMP3133#readme",
   "dependencies": {
+    "body-parser": "^2.2.2",
     "chai": "^6.2.2",
-    "mocha": "^11.7.5"
+    "express": "^5.2.1",
+    "mocha": "^11.7.5",
+    "mongoose": "^9.2.1"
   }
 }

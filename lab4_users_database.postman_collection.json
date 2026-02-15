@@ -1,0 +1,150 @@
+{
+  "info": {
+    "name": "Lab4 Users Database",
+    "_postman_id": "b7c2d1e4-9f23-4c9a-8a77-abc123456789",
+    "description": "Collection for testing user validation with MongoDB Atlas",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1 - Successful Insert",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"username\": \"StevenDev\",\n    \"email\": \"steven@example.com\",\n    \"city\": \"Guelph\",\n    \"website\": \"https://example.com\",\n    \"zipcode\": \"12345-1234\",\n    \"phone\": \"1-123-123-1234\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8081/users",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8081",
+          "path": ["users"]
+        }
+      }
+    },
+    {
+      "name": "2 - Username Too Short",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"username\": \"abc\",\n    \"email\": \"short@example.com\",\n    \"city\": \"Guelph\",\n    \"website\": \"https://example.com\",\n    \"zipcode\": \"12345-1234\",\n    \"phone\": \"1-123-123-1234\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8081/users",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8081",
+          "path": ["users"]
+        }
+      }
+    },
+    {
+      "name": "3 - Invalid Email",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"username\": \"ValidUser\",\n    \"email\": \"not-an-email\",\n    \"city\": \"Guelph\",\n    \"website\": \"https://example.com\",\n    \"zipcode\": \"12345-1234\",\n    \"phone\": \"1-123-123-1234\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8081/users",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8081",
+          "path": ["users"]
+        }
+      }
+    },
+    {
+      "name": "4 - Invalid City (Numbers)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"username\": \"ValidUser\",\n    \"email\": \"city@example.com\",\n    \"city\": \"Guelph123\",\n    \"website\": \"https://example.com\",\n    \"zipcode\": \"12345-1234\",\n    \"phone\": \"1-123-123-1234\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8081/users",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8081",
+          "path": ["users"]
+        }
+      }
+    },
+    {
+      "name": "5 - Invalid Website URL",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"username\": \"ValidUser\",\n    \"email\": \"web@example.com\",\n    \"city\": \"Guelph\",\n    \"website\": \"ftp://example.com\",\n    \"zipcode\": \"12345-1234\",\n    \"phone\": \"1-123-123-1234\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8081/users",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8081",
+          "path": ["users"]
+        }
+      }
+    },
+    {
+      "name": "6 - Invalid Zip Code Format",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"username\": \"ValidUser\",\n    \"email\": \"zip@example.com\",\n    \"city\": \"Guelph\",\n    \"website\": \"https://example.com\",\n    \"zipcode\": \"1234-1234\",\n    \"phone\": \"1-123-123-1234\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8081/users",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8081",
+          "path": ["users"]
+        }
+      }
+    },
+    {
+      "name": "7 - Invalid Phone Format",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"username\": \"ValidUser\",\n    \"email\": \"phone@example.com\",\n    \"city\": \"Guelph\",\n    \"website\": \"https://example.com\",\n    \"zipcode\": \"12345-1234\",\n    \"phone\": \"123-123-1234\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8081/users",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8081",
+          "path": ["users"]
+        }
+      }
+    }
+  ]
+}
